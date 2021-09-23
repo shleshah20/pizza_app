@@ -36,3 +36,12 @@ section.hero {
   border-color: #fff;
   color: #fff;
 }
+
+.add-order {
+  background: #FE5F1E;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.add-order:hover {
+  background: #b23301;
+}

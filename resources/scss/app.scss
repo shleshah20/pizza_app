@@ -39,3 +39,12 @@ section.hero{
         color: $pure;
     }
 }
+
+.add-order{
+    background: $primary;
+    color:$pure;
+    transition: $smooth;
+    &:hover{
+        background: $primary-hover;
+    }
+}
