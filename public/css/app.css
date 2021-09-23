@@ -12,8 +12,12 @@ nav li:last-child a:hover {
 }
 
 nav li a {
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 nav li a:hover {
   color: #FE5F1E;
+}
+
+section.hero {
+  background: #F8F8f8;
 }
