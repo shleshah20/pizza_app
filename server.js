@@ -20,9 +20,14 @@ app.get('/',(req,res) => {
 app.get('/cart',(req,res)=>{
     res.render('customer/cart')
 })
+app.get('/login',(req,res)=>{
+    res.render('auth/login')
+})
+app.get('/register',(req,res)=>{
+    res.render('auth/register')
+})
+
 
 app.listen(PORT,() => {
     console.log(`listing on port ${PORT}`)
 })
-
-//9min
