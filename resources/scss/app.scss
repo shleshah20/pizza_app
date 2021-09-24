@@ -40,11 +40,18 @@ section.hero{
     }
 }
 
-.add-order{
+.btn-primary{
     background: $primary;
     color:$pure;
     transition: $smooth;
     &:hover{
         background: $primary-hover;
+    }
+}
+
+section.cart{
+    background: $secondary;
+    .amount{
+        color: $primary;
     }
 }

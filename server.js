@@ -8,15 +8,18 @@ const PORT = process.env.PORT || 3000
 //assets
 app.use(express.static('public'))
 
-app.get('/',(req,res) => {
-    res.render('home')
-})
-
 //set tamplate engine
 
 app.use(expressLayout)
 app.set('views',path.join(__dirname,'/resources/views'))
 app.set('view engine','ejs')
+
+app.get('/',(req,res) => {
+    res.render('home')
+})
+app.get('/cart',(req,res)=>{
+    res.render('customer/cart')
+})
 
 app.listen(PORT,() => {
     console.log(`listing on port ${PORT}`)
