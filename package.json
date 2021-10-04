@@ -13,10 +13,14 @@
   "author": "shlesha shah",
   "license": "ISC",
   "dependencies": {
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.1",
+    "express-flash": "^0.0.2",
     "express-package": "^0.0.8",
+    "express-session": "^1.17.2",
     "mongoose": "^6.0.8",
     "tailwindcss": "^2.2.9"
   },
