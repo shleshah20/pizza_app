@@ -23,6 +23,7 @@
     "express-flash": "^0.0.2",
     "express-package": "^0.0.8",
     "express-session": "^1.17.2",
+    "moment": "^2.29.1",
     "mongoose": "^6.0.8",
     "noty": "^3.2.0-beta-deprecated",
     "passport": "^0.5.0",

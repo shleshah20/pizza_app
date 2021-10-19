@@ -17,7 +17,7 @@ function updateCart(pizza){
             layout: 'bottomLeft'
           }).show();          
     }).catch(err=>{
-        console.log(err)
+        // console.log(err)
         new Noty({
             timeout :10000,
             type:'error',
@@ -37,3 +37,11 @@ addToCart.forEach((btn)=>{
         // console.log(pizza)
     })
 })
+
+const alertMsg = document.querySelector('#success-alert')
+
+if(alertMsg){
+    setTimeout(()=>{
+        alertMsg.remove()
+    },2000)
+}

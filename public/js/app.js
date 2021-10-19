@@ -2176,7 +2176,7 @@ function updateCart(pizza) {
       layout: 'bottomLeft'
     }).show();
   })["catch"](function (err) {
-    console.log(err);
+    // console.log(err)
     new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
       timeout: 10000,
       type: 'error',
@@ -2194,6 +2194,13 @@ addToCart.forEach(function (btn) {
     updateCart(pizza); // console.log(pizza)
   });
 });
+var alertMsg = document.querySelector('#success-alert');
+
+if (alertMsg) {
+  setTimeout(function () {
+    alertMsg.remove();
+  }, 2000);
+}
 
 /***/ }),
 
