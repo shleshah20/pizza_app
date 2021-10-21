@@ -1,9 +1,12 @@
-const Order = require("../../models/order")
+const Order = require("../../../models/order")
 const moment = require('moment')
 function orderController(){
     return{
         async index(req,res){
-            const orders = await Order.find({ customerId: req.user._id },null,{ sort:{ 'createdAt':-1 }})
+            const orders = await Order.find({ customerId: req.user._id },
+                null,
+                { sort:{ 'createdAt':-1 }})
+                res.header('Cache-Controller','no-cache','private','no-store')
             res.render('customers/orders',{orders:orders,moment:moment})
         },
         store(req,res){
