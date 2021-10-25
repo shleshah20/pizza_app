@@ -7,6 +7,19 @@ export function initAdmin(){
     let orders = []
     let markup 
 
+    axios.get('/admin/orders', {
+        headers: {
+            "X-Requested-With": "XMLHttpRequest"
+        }
+    }).then(res => {
+        orders = res.data
+        console.log(res)
+        markup = generateMarkup(orders)
+        orderTableBody.innerHTML = markup
+    }).catch(err => {
+        console.log(err)
+    })
+
     function generateMarkup(orders){
         return orders.map(order =>{
             return `
@@ -35,7 +48,7 @@ export function initAdmin(){
                                 Delivered
                             </option>
                             <option value="completed" ${ order.status === 'completed' ? 'selected' : '' }>
-                                Completed
+                            Completed
                             </option>
                         </select>
                     </form>
@@ -59,18 +72,6 @@ export function initAdmin(){
     `
     }).join('')
     }
-
-    axios.get('/admin/orders', {
-        headers: {
-            "X-Requested-With": "XMLHttpRequest"
-        }
-    }).then(res => {
-        orders = res.data
-        markup = generateMarkup(orders)
-        orderTableBody.innerHTML = markup
-    }).catch(err => {
-        console.log(err)
-    })
 
     function renderItems(items){
         let parseItems = Object.values(items)

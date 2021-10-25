@@ -30,6 +30,16 @@ function orderController(){
                 req.flash('error','something went wrong')
                 return res.redirect('/cart')
             })
+        },
+        async show(req,res){
+            const order = await Order.findById(req.params.id)
+            //Authorized user
+
+            if(req.user._id.toString() === order.customerId.toString()){
+                return res.render('customers/singleOrders',{order})
+            }           
+               return res.redirect('/')
+
         }
     }
 }
