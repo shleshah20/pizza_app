@@ -67,6 +67,8 @@ function updateStatus(order){
         if(stepCompleted) {
             status.classList.add('step-completed')
         }
+        console.log(dataProp)
+        console.log(order.status)
        if( dataProp === order.status) {
             console.log(dataProp)
             stepCompleted = false
