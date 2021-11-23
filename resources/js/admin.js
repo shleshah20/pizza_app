@@ -13,7 +13,7 @@ export function initAdmin(){
         }
     }).then(res => {
         orders = res.data
-        console.log(res)
+        // console.log(res)
         markup = generateMarkup(orders)
         orderTableBody.innerHTML = markup
     }).catch(err => {

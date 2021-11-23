@@ -22,7 +22,9 @@ function orderController(){
                 phone,
                 address
             })
-            order.save().then(result=>{                
+            order.save().then(result=>{    
+                const eventEmitter = req.app.get('eventEmitter')
+                eventEmitter.emit('orderPlaced', result)            
                 req.flash('success','Order placed successfully')
                 delete req.session.cart
                 return res.redirect('/customer/orders')

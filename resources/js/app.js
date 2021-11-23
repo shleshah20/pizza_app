@@ -57,20 +57,17 @@ let order = hiddenInput ? hiddenInput.value : null
 order = JSON.parse(order)
 let time = document.createElement('small')
 function updateStatus(order){
-    // statuses.forEach((status) => {
-    //     status.classList.remove('step-completed')
-    //     status.classList.remove('current')
-    // })
+    statuses.forEach((status) => {
+        status.classList.remove('step-completed')
+        status.classList.remove('current')
+    })
     let stepCompleted = true;
     statuses.forEach((status) => {
        let dataProp = status.dataset.status
         if(stepCompleted) {
             status.classList.add('step-completed')
         }
-        console.log(dataProp)
-        console.log(order.status)
        if( dataProp === order.status) {
-            console.log(dataProp)
             stepCompleted = false
             time.innerText = moment(order.updatedAt).format('hh:mm A')
             status.appendChild(time)
@@ -82,3 +79,27 @@ function updateStatus(order){
 }
 
 updateStatus(order);
+
+//socket
+
+let socket = io()
+
+//join
+if(order){
+    socket.emit('join',`order_${order_id}`)
+}
+
+socket.on('orderUpdated',(data)=>{
+    const updatedOrder = { ...order }
+    updatedOrder.updatedAt = moment().format()
+    updatedOrder.status = data.status
+    updateStatus(updatedOrder)
+    new Noty({
+        timeout :1000,
+        type:'success',
+        text: "Order Updated",
+        progressBar: false,
+      }).show();          
+
+})
+

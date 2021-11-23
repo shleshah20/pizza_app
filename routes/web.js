@@ -4,7 +4,7 @@ const cartController = require('../app/http/controllers/customers/cartController
 const homeController = require('../app/http/controllers/homeController')
 const orderController = require('../app/http/controllers/customers/orderController')
 const adminOrderController = require('../app/http/controllers/admin/orderController')
-const statusController = require('../app/http/controllers/admin/status')
+const statusController = require('../app/http/controllers/admin/statusController')
 
 //middlewares
 const guest = require('../app/http/middlewares/guest')
